@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   palm.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 15:15:10 by alsanche          #+#    #+#             */
+/*   Updated: 2023/02/27 18:11:04 by alsanche         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phonebook.hpp"
 
 Phonebook::Phonebook()
@@ -10,56 +22,72 @@ Phonebook::~Phonebook()
 	return ;
 }
 
-void	add_contact(int	i)
+void	Phonebook::add_contact(int n_con)
 {
 	std::string	aux;
 	std::string text[5] = {"first Name","last Name","Nickname","Phone Number","Darkest Secret"};
-	int	x;
+	int	x, i;
 
-	if(!contacts[i])
-		contacts[i].contact();
-	for(x=0; x <= 5; x++)
+	if (n_con > MAX_C)
+		i = this->n_contacts % MAX_C;
+	else
+		i = n_con;
+	for(x=0; x < 5; x++)
 	{
 		std::cout<<"type "<<text[x]<<"for the contact\n-> ";
-		std::getline(std::cin, aux);
-		if (!aux)
+		if (!std::getline(std::cin, aux))
 		{
 			std::cout<<"please type valid"<<text[x]<<std::endl;
 			x--;
 		}
 		else
-			contacts[i].add_value(x, aux);
+			this->contacts[i].add_value(x, aux);
 	}
 }
 
-void	Phonebook::view_palm(int max)
+void	Phonebook::view_palm()
 {
 	std::string	text;
 	int	i, x;
 
+	std::cout<<" ___________________________________________ \n";
+	std::cout<<"|Number--ID|First-Name|Last--Name|-Nickname-|\n";
 	for(i=0; i < n_contacts; i++)
 	{
-		if (i == 0)
-			std::cout<<"|Number--ID|First-Name|Last--Name|-Nickname-|Phone--Num|Darkest--S|\n";
-		else
-			std::cout<<"|----------|----------|----------|----------|----------|----------|\n";
-		for (x = 0; x < 5; x++)
+		if (i >= 1)
+			std::cout<<"|----------|----------|----------|----------|\n";
+		std::cout<<"|"<<std::setfill(' ')<<std::setw(10)<<i<<"|";
+		for (x = 0; x < 3; x++)
 		{
-			text = contacts::get_value(x);	
-			std::cout<<"|"<<text<<"|";
+			text = this->contacts[i].get_value(x);
+			std::cout<<std::setfill(' ')<<std::setw(10)<<text<<"|";
 		}
+		std::cout<<std::endl;
 	}
-	std::cout<<"|____________________________________________________________________|\n";
+	std::cout<<"|__________|__________|__________|__________|\n";
 }
 
-void	Phonebook::turn_off()
+int	Phonebook::init_palm()
 {
-	int	i;
+	std::string aux;
 
-	if (n_contacts >= 1)
+	while(1)
 	{
-		for(i = 0; i < n_contacts, i++)
-			contacts[i].~contact();
+		std::cout<<"Please enter a command->: ";
+		if (std::getline(std::cin, aux))
+		{
+			if (aux == "ADD")
+			{
+				add_contact(n_contacts);
+				n_contacts++;
+			}
+			else if (aux == "SEARCH")
+				view_palm();
+			else if (aux == "EXIT")
+				return (0);
+			else
+				std::cout<<"Sorry, the accepted commands are: 'ADD' , 'SEARCH' , 'EXIT'\n";
+		}	
 	}
-	~phonebook();
+	return (-1);
 }

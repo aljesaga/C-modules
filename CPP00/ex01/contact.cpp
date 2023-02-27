@@ -6,13 +6,13 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 21:02:53 by alsanche          #+#    #+#             */
-/*   Updated: 2023/02/19 21:22:31 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/02/27 15:16:06 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "contact.hpp"
 
-Contact::contact()
+Contact::Contact()
 {
     f_name = "";
     l_name = "";
@@ -21,7 +21,7 @@ Contact::contact()
     dark_secret = "";
 }
 
-Contact::~contact
+Contact::~Contact()
 {
     return ;
 }
@@ -36,11 +36,11 @@ void   Contact::add_value(int type, std::string value)
         n_name = value;
     else if (type == 3)
         phone = value;
-    else if (type = 4)
+    else if (type == 4)
         dark_secret = value;
 }
 
-std::string Contact::get_value(int x)
+std::string Contact::get_value(int type)
 {
     if (type == 0)
         return (f_name);
@@ -50,6 +50,7 @@ std::string Contact::get_value(int x)
         return (n_name);
     else if (type == 3)
         return (phone);
-    else if (type = 4)
+    else if (type == 4)
         return (dark_secret);
+    return (NULL);
 }

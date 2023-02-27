@@ -6,13 +6,13 @@
 #    By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 20:02:52 by alsanche          #+#    #+#              #
-#    Updated: 2023/02/16 20:06:13 by alsanche         ###   ########lyon.fr    #
+#    Updated: 2023/02/27 15:39:50 by alsanche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Palm
 
-SRCS = palm.cpp
+SRCS = palm.cpp contact.cpp main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
