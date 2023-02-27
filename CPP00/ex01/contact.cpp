@@ -12,25 +12,44 @@
 
 #include    "contact.hpp"
 
-contact::contact()
+Contact::contact()
 {
-    _f_name = "";
-    _l_name = "";
-    _n_name = "";
-    _phone = "";
-    _dark_secret = "";
+    f_name = "";
+    l_name = "";
+    n_name = "";
+    phone = "";
+    dark_secret = "";
 }
 
-void   contact::add_value(int type, std::string value)
+Contact::~contact
+{
+    return ;
+}
+
+void   Contact::add_value(int type, std::string value)
 {
     if (type == 0)
-        _f_name = value;
+        f_name = value;
     else if (type == 1)
-        _l_name = value;
+        l_name = value;
     else if (type == 2)
-        _n_name = value;
+        n_name = value;
     else if (type == 3)
-        _phone = value;
+        phone = value;
     else if (type = 4)
-        _dark_secret = value;
+        dark_secret = value;
+}
+
+std::string Contact::get_value(int x)
+{
+    if (type == 0)
+        return (f_name);
+    else if (type == 1)
+        return (l_name);
+    else if (type == 2)
+        return (n_name);
+    else if (type == 3)
+        return (phone);
+    else if (type = 4)
+        return (dark_secret);
 }

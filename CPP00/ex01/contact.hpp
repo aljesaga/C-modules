@@ -4,13 +4,14 @@
 # include <iostream>
 # include <iomanip>
 
-class contact
+class Contact
 {
 	public:
 			void	add_value(int type, std::string value);
-			void	print_value(int type);
+			std::string	get_value(int type);
+			Contact();
+			~Contact();
 
-			contact();
     private:
 			std::string _f_name;
 			std::string	_l_name;
