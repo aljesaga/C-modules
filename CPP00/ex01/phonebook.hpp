@@ -16,6 +16,7 @@ class   Phonebook
             Phonebook();
             ~Phonebook();
             void    add_contact(int n_con);
+            void    view_contact(int n_con);
             void    view_palm();
             int    init_palm();
 };

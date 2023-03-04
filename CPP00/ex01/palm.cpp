@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:15:10 by alsanche          #+#    #+#             */
-/*   Updated: 2023/02/28 18:12:17 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/03/04 11:51:10 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Phonebook::Phonebook()
 
 Phonebook::~Phonebook()
 {
-	return ;
 }
 
 void	Phonebook::add_contact(int n_con)
@@ -34,7 +33,7 @@ void	Phonebook::add_contact(int n_con)
 		i = n_con;
 	for(x=0; x < 5; x++)
 	{
-		std::cout<<"type "<<text[x]<<"for the contact\n-> ";
+		std::cout<<"type "<<text[x]<<" for the contact\n-> ";
 		if (std::getline(std::cin, aux))
 			this->contacts[i].add_value(x, aux);
 		else
@@ -43,6 +42,36 @@ void	Phonebook::add_contact(int n_con)
 			x--;
 		}
 	}
+}
+
+void	Phonebook::view_contact(int n_con)
+{
+	std::string	text, view;
+	std::string title[5] = {"first Name","last Name","Nickname","Phone Number","Darkest Secret"};
+	int	i, x, len;
+
+	std::cout<<"type ID to see all info :: ";
+	std::getline(std::cin, view);
+	len = view.length();
+	for (x=0; x < len; x++)
+	{
+		if (!std::isdigit(view[x]))
+		{
+			std::cout<<"Wrong ID"<<std::endl;
+			return ;
+		}
+	}
+	i = std::stoi(view, NULL, 10);
+	if (i >= 1 && i <= n_con)
+	{
+		for(x = 0; x < 5; x++)
+		{
+			text = this->contacts[i - 1].get_value(x);
+			std::cout<<"\033[32m"<<title[x]<<"\033[0m [ "<<text<<" ]\n";
+		}
+	}
+	else
+		std::cout<<"Invalid ID"<<std::endl;
 }
 
 void	Phonebook::view_palm()
@@ -74,18 +103,8 @@ void	Phonebook::view_palm()
 		std::cout<<std::endl;
 	}
 	std::cout<<"|__________|__________|__________|__________|\n";
-	std::cout<<"type ID to see all info :: ";
-	std::cin.;
-	if (i >= 1 && i <= n_con)
-	{
-		for(x = 0; x < 5; x++)
-		{
-			text = this->contacts[i - 1].get_value(x);
-			std::cout<<"\033[32m"<<title[x]<<"\033[0m [ "<<text<<" ]\n";
-		}
-	}
-	else
-		std::cout<<"invalid ID"<<std::endl;
+	if (n_con > 0)
+		view_contact(n_con);
 }
 
 int	Phonebook::init_palm()
@@ -108,7 +127,7 @@ int	Phonebook::init_palm()
 				return (0);
 			else
 				std::cout<<"Sorry, the accepted commands are: 'ADD' , 'SEARCH' , 'EXIT'\n";
-		}	
+		}
 	}
 	return (-1);
 }
