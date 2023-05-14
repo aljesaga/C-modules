@@ -48,7 +48,7 @@ Account::~Account()
 
 void	Account::_displayTimestamp()
 {
-	time_t atl_time = NULL;
+	time_t atl_time;
 	struct tm *info_time;
 	char text[20];
 	
@@ -77,20 +77,25 @@ int	Account::getNbWithdrawals()
     return (_totalNbWithdrawals);
 }
 
+int		Account::checkAmount(void) const
+{
+	return(this->_amount);
+}
+
 void	Account::makeDeposit(int deposit)
 {
 	_totalAmount += deposit;
 	_nbDeposits += 1;
 	_totalNbDeposits += 1;
 	_displayTimestamp();
-	std::cout<<"index:"<<this->_accountIndex<<";p_amount:"<<this->_amount<<";deposit:"<<deposit;
+	std::cout<<"index:"<<this->_accountIndex<<";p_amount:"<<checkAmount()<<";deposit:"<<deposit;
 	_amount += deposit;
-	std::cout<<";amount:"<<this->_amount<<";nb_deposits:"<<this->_nbDeposits<<"\n";
+	std::cout<<";amount:"<<checkAmount()<<";nb_deposits:"<<this->_nbDeposits<<"\n";
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	if (withdrawal > this->_amount)
+	if (withdrawal > checkAmount())
 	{
 		_displayTimestamp();
 		std::cout<<"index;"<<this->_accountIndex<<";withdrawal:refused\n";
@@ -102,9 +107,9 @@ bool	Account::makeWithdrawal(int withdrawal)
 		_nbWithdrawals += 1;
 		_totalNbWithdrawals += 1;
 		_displayTimestamp();
-		std::cout<<"index;"<<this->_accountIndex<<";p_amount:"<<this->_amount<<";withdrawal:"<<withdrawal;
+		std::cout<<"index;"<<this->_accountIndex<<";p_amount:"<<checkAmount()<<";withdrawal:"<<withdrawal;
 		_amount -= withdrawal;
-		std::cout<<";amount:"<<this->_amount<<";nb_withdrawals:"<<this->_nbWithdrawals<<"\n";
+		std::cout<<";amount:"<<checkAmount()<<";nb_withdrawals:"<<this->_nbWithdrawals<<"\n";
 		return (true);
 	}
 
@@ -113,7 +118,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 void	Account::displayStatus(void) const
 {
 	_displayTimestamp();
-	std::cout<<"index:"<<this->_accountIndex<<";amount:"<<this->_amount<<";deposits:"<<this->_nbDeposits<<";whithdrawals:"<<this->_nbWithdrawals<<"\n";
+	std::cout<<"index:"<<this->_accountIndex<<";amount:"<<checkAmount()<<";deposits:"<<this->_nbDeposits<<";whithdrawals:"<<this->_nbWithdrawals<<"\n";
 }
 
 void	Account::displayAccountsInfos()
