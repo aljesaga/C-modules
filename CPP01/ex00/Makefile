@@ -1,12 +1,12 @@
 NAME = Zombie
 
-SRCS = Zombie.cpp newZombie.cpp randomZombie.cpp main.cpp
+SRCS = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-CPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPFLAGS = -Wall -Wextra -Werror -std=c++98 ##-fsanitize=address
 
 ${NAME}: ${OBJS}
 				@${CC} ${CPFLAGS} ${OBJS} -o ${NAME}
