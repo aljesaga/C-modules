@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 12:53:59 by alsanche          #+#    #+#             */
-/*   Updated: 2023/05/13 17:30:34 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/05/17 16:37:24 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ Account::Account()
 }
 
 Account::~Account()
-{}
+{
+	_displayTimestamp();
+	std::cout<<"index:"<<this->_accountIndex<<";amount:"<<this->_amount<<";closed\n";
+}
 
 void	Account::_displayTimestamp()
 {

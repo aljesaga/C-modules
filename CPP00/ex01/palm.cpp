@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:15:10 by alsanche          #+#    #+#             */
-/*   Updated: 2023/03/04 11:51:10 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/05/17 16:28:35 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	Phonebook::view_palm()
 	std::string title[5] = {"first Name","last Name","Nickname","Phone Number","Darkest Secret"};
 	int	i, x, n_con;
 
-	if (n_contacts >= MAX_C)
-		n_con = this->n_contacts % MAX_C;
+	if (n_contacts > MAX_C)
+		n_con = MAX_C;
 	else
 		n_con = this->n_contacts;
 	std::cout<<" ___________________________________________ \n";

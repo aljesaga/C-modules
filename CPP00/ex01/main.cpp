@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:14:55 by alsanche          #+#    #+#             */
-/*   Updated: 2023/03/04 11:51:22 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/05/17 16:03:11 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ int main()
     std::cout<<"\033[32m      |______/ \\ _____/  \\ _____/  \\ _____/ \n";
     
     palm.init_palm();
-    palm.~Phonebook();
     return (0);
 }

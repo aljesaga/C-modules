@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 13:17:37 by alsanche          #+#    #+#             */
-/*   Updated: 2023/05/17 13:17:59 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/05/17 17:27:22 by alsanche          #+#    #+#             */
+/*   Updated: 2023/05/17 18:15:25 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-Zombie*    newZombie(std::string name)
+HumanB::HumanB(std::string ID)
 {
-    Zombie *new_z;
+    this->name = ID;
+}
 
-    new_z = new Zombie(name);
-    return (new_z);
+HumanB::~HumanB()
+{
+}
+
+void    HumanB::setWeapon(Weapon arm)
+{
+    this->_weapon = &arm;
+}
+
+void    HumanB::attack(void)
+{
+    std::cout<<this->name<<" attacks with their "<<this->_weapon->getType()<<std::endl;
 }

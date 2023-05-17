@@ -5,20 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/17 13:18:18 by alsanche          #+#    #+#              #
-#    Updated: 2023/05/17 13:18:19 by alsanche         ###   ########lyon.fr    #
+#    Created: 2023/05/17 13:41:12 by alsanche          #+#    #+#              #
+#    Updated: 2023/05/17 13:42:04 by alsanche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ZombieHorde
+NAME = StringPR
 
-SRCS = Zombie.cpp ZombieHorde.cpp main.cpp
+SRCS = main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-CPFLAGS = -Wall -Wextra -Werror -std=c++98 ##-fsanitize=address
+CPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 ${NAME}: ${OBJS}
 				@${CC} ${CPFLAGS} ${OBJS} -o ${NAME}
