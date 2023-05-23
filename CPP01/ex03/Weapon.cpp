@@ -12,20 +12,18 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon()
-{
-}
-
 Weapon::Weapon(std::string  type)
 {
     this->_type = type;
+    return ;
 }
 
 Weapon::~Weapon(void)
 {
+    return ;
 }
 
-std::string Weapon::getType(void)
+std::string Weapon::getType()
 {
     return(this->_type);
 }

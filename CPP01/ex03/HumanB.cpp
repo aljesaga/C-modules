@@ -13,21 +13,26 @@
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
-HumanB::HumanB(std::string ID)
+HumanB::HumanB(std::string ID):_weapon(NULL)
 {
-    this->name = ID;
+    this->_name = ID;
+    return ;
 }
 
 HumanB::~HumanB()
 {
+    return ;
 }
 
-void    HumanB::setWeapon(Weapon arm)
+void    HumanB::setWeapon(Weapon &arm)
 {
     this->_weapon = &arm;
 }
 
 void    HumanB::attack(void)
 {
-    std::cout<<this->name<<" attacks with their "<<this->_weapon->getType()<<std::endl;
+    if (this->_weapon)
+        std::cout<<this->_name<<" attacks with their "<<this->_weapon->getType()<<std::endl;
+    else
+        std::cout<<this->_name<<"run for your life"<<std::endl;
 }

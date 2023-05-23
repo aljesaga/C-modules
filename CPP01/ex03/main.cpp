@@ -23,7 +23,6 @@ int	main(void)
 		bob.attack();
 		club.setType("some other type of club");
 		bob.attack();
-		std::cout<<std::endl;
 
 	}
 	{

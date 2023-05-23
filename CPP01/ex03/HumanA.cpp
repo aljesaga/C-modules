@@ -12,21 +12,18 @@
 
 # include "HumanA.hpp"
 
-HumanA::HumanA(void)
+HumanA::HumanA(std::string ID, Weapon &weapon):_weapon(weapon)
 {
-}
-
-HumanA::HumanA(std::string ID, Weapon arm)
-{
-    this->name = ID;
-    this->_weapon = &arm;
+    this->_name = ID;
+    return ;
 }
 
 HumanA::~HumanA()
 {
+    return ;
 }
 
-void    HumanA::attack(void)
+void    HumanA::attack()
 {
-    std::cout<<this->name<<" attacks with their "<<this->_weapon->getType()<<std::endl;
+    std::cout<<this->_name<<" attacks with their "<<this->_weapon.getType()<<std::endl;
 }

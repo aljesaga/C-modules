@@ -21,10 +21,10 @@ class Weapon
         std::string _type;
 
     public:
-        std::string getType(void);
+        std::string getType();
         void        setType(std::string type);
+
         Weapon(std::string type);
-        Weapon();
         ~Weapon();
 };
 
