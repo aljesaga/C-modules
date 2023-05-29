@@ -15,6 +15,12 @@
 
 # include <iostream>
 
+#define YELLOW "\e[0;33m";
+#define RED    "\e[0;31m";
+#define GREEN  "\e[0;32m";
+#define CYAN   "\e[0;36m";
+#define RESET  "\e[0m";
+
 class Harl
 {
     private:
@@ -27,6 +33,9 @@ class Harl
     public:
 
         void    complain(std::string level);
+        typedef void (Harl::*funtion)();
+        Harl();
+        ~Harl();
 
 };
 
