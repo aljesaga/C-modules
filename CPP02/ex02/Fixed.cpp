@@ -20,39 +20,91 @@ int     Fixed::toInt(void) const
     return (this->point_value >> this->constant);
 }
 
+Fixed& Fixed::max(Fixed& one, Fixed& two)
+{
+    if (one.point_value > two.point_value)
+        return (one);
+    else
+        return (two);
+}
+
+Fixed const& Fixed::max(Fixed const& one, Fixed const& two)
+{
+    if (one.point_value > two.point_value)
+        return (one);
+    else
+        return (two);
+}
+
+Fixed& Fixed::min(Fixed& one, Fixed& two)
+{
+    if (one.point_value < two.point_value)
+        return (one);
+    else
+        return (two);
+}
+
+Fixed const& Fixed::min(Fixed const& one, Fixed const& two)
+{
+    if (one.point_value < two.point_value)
+        return (one);
+    else
+        return (two);
+}
+
+Fixed& Fixed::operator++()
+{
+    this->point_value += 1;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed out(*this);
+    this->point_value += 1;
+    return (out);
+}
+
+Fixed& Fixed::operator--()
+{
+    this->point_value -= 1;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed out(*this);
+    this->point_value -=1;
+    return (out);
+}
+
 void Fixed::operator=(const Fixed &fix)
 {
-    std::cout<<"Assignation operator called"<<std::endl;
     this->point_value = fix.getRawBits();
 }
 
 Fixed::Fixed()
 {
-    std::cout<<"Default constructor called"<<std::endl;
     this->point_value = 0;
 }
 
 Fixed::Fixed(Fixed &fix)
 {
-    std::cout<<"Copy constructor called"<<std::endl;
     this->point_value = fix.getRawBits();
 }
 
 Fixed::Fixed(const int num)
 {
-    std::cout<<"Int constructor called"<<std::endl;
     this->point_value = num * (1<<this->constant);
 }
 
 Fixed::Fixed(const float num)
 {
-    std::cout<<"float constructor called"<<std::endl;
     this->point_value = num * (1 << this->constant);
 }
 
 Fixed::~Fixed()
 {
-    std::cout<<"Destructor called"<<std::endl;
     return ;
 }
 
