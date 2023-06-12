@@ -17,6 +17,17 @@ class Fixed
         static Fixed&  min(Fixed& one, Fixed& two);
         static Fixed const&  min(Fixed const& one, Fixed const& two);
 
+
+        bool    operator<(Fixed const& fix) const;
+        bool    operator>(Fixed const& fix) const;
+        bool    operator<=(Fixed const& fix) const;
+        bool    operator>=(Fixed const& fix) const;
+        bool    operator==(Fixed const& fix) const;
+        bool    operator!=(Fixed const& fix) const;
+        Fixed   operator+(Fixed const& fix) const;
+        Fixed   operator-(Fixed const& fix) const;
+        Fixed   operator*(Fixed const& fix) const;
+        Fixed   operator/(Fixed const& fix) const;
         Fixed&  operator++();
         Fixed   operator++(int);
         Fixed&  operator--();

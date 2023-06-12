@@ -52,6 +52,72 @@ Fixed const& Fixed::min(Fixed const& one, Fixed const& two)
         return (two);
 }
 
+bool Fixed::operator<(Fixed const& fix) const
+{
+    if (this->toFloat() < fix.toFloat())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator>(Fixed const& fix) const
+{
+    if (this->toFloat() > fix.toFloat())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator<=(Fixed const& fix) const
+{
+    if (this->toFloat() <= fix.toFloat())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator>=(Fixed const& fix) const
+{
+    if (this->toFloat() >= fix.toFloat())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator==(Fixed const& fix) const
+{
+    if (this->toFloat() == fix.toFloat())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator!=(Fixed const& fix) const
+{
+    if (this->toFloat() != fix.toFloat())
+        return (true);
+    return (false);
+}
+
+Fixed Fixed::operator+(Fixed const& fix) const
+{
+    Fixed aux(this->toFloat() + fix.toFloat());
+    return (aux);
+}
+
+Fixed Fixed::operator-(Fixed const& fix) const
+{
+    Fixed aux(this->toFloat() - fix.toFloat());
+    return (aux);
+}
+
+Fixed Fixed::operator*(Fixed const& fix) const
+{
+    Fixed aux(this->toFloat() * fix.toFloat());
+    return (aux);
+}
+
+Fixed Fixed::operator/(Fixed const& fix) const
+{
+    Fixed aux(this->toFloat() / fix.toFloat());
+    return (aux);
+}
+
 Fixed& Fixed::operator++()
 {
     this->point_value += 1;
