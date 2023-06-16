@@ -22,7 +22,7 @@ int     Fixed::toInt(void) const
 
 Fixed& Fixed::max(Fixed& one, Fixed& two)
 {
-    if (one.toFloat() > two.toFloat())
+    if (one.point_value > two.point_value)
         return (one);
     else
         return (two);
@@ -30,7 +30,7 @@ Fixed& Fixed::max(Fixed& one, Fixed& two)
 
 Fixed const& Fixed::max(Fixed const& one, Fixed const& two)
 {
-    if (one.toFloat() > two.toFloat())
+    if (one.point_value > two.point_value)
         return (one);
     else
         return (two);
@@ -38,7 +38,7 @@ Fixed const& Fixed::max(Fixed const& one, Fixed const& two)
 
 Fixed& Fixed::min(Fixed& one, Fixed& two)
 {
-    if (one.toFloat() < two.toFloat())
+    if (one.point_value < two.point_value)
         return (one);
     else
         return (two);
@@ -46,7 +46,7 @@ Fixed& Fixed::min(Fixed& one, Fixed& two)
 
 Fixed const& Fixed::min(Fixed const& one, Fixed const& two)
 {
-    if (one.toFloat() < two.toFloat())
+    if (one.point_value < two.point_value)
         return (one);
     else
         return (two);
