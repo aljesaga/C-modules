@@ -12,7 +12,7 @@ class Point
     
     public:
         Point();
-        Point(Point& cpy);
+        Point(const Point& cpy);
         Point(float const tx, float const ty);
         ~Point();
 

@@ -1,10 +1,10 @@
-# include "Point.hpp"
+#include "Point.hpp"
 
 Point::Point(): X(0), Y(0)
 {
 }
 
-Point::Point(Point& cpy)
+Point::Point(const Point& cpy)
 {
     this->X = cpy.X;
     this->Y = cpy.Y;
@@ -12,8 +12,8 @@ Point::Point(Point& cpy)
 
 Point::Point(float const tx, float const ty)
 {
-    Fixed X(tx);
-    Fixed Y(ty);
+    X.setRawBits(tx);
+    Y.setRawBits(ty);
 }
 
 Point::~Point()
@@ -32,12 +32,9 @@ void    Point::setFixed(Fixed& set, char Z)
 
 float   Point::getFixedValue(char Z) const
 {
-    if (Z == 'X')
-        return (this->X.toFloat());
-    else if (Z == 'Y')
+    if (Z == 'Y')
         return (this->Y.toFloat());
-    else
-        std::cout<<"invalid Char"<<std::endl;
+    return (this->X.toFloat());
 }
 
 Point& Point::operator=(Point& cpy)
