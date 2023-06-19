@@ -1,14 +1,18 @@
 #include "Point.hpp"
 
+
 float   get_area(Point PA, Point PB, Point PC)
 {
-    float  P1, P2, P3, Area;
+    float  AB_x, AB_y, AC_x, AC_y, Area;
 
-    P1 = (PA.getFixedValue('X') * (PB.getFixedValue('Y') - PC.getFixedValue('y')));
-    P2 = (PB.getFixedValue('X') * (PC.getFixedValue('Y') - PA.getFixedValue('y')));
-    P3 = (PC.getFixedValue('X') * (PA.getFixedValue('Y') - PB.getFixedValue('y')));
+    AB_y = (PB.getFixedValue('Y') - PA.getFixedValue('Y'));
+    AC_x = (PC.getFixedValue('X') - PA.getFixedValue('X'));
+    AC_y = (PC.getFixedValue('Y') - PA.getFixedValue('Y'));
+    AB_x = (PB.getFixedValue('X') - PA.getFixedValue('X'));
 
-    Area = ((P1 + P2 + P3) / 2);
+    Area = ((AB_x * AC_y) - (AB_y * AC_x));
+    if (Area < 0)
+        Area *= -1;
     return (Area);
 }
 
@@ -21,6 +25,8 @@ bool    bsp(Point const a, Point const b, Point const c, Point const p)
     tri_p2 = get_area(b, c, p);
     tri_p3 = get_area(c, a, p);
     total = tri_p1 + tri_p2 + tri_p3;
+
+    std::cout<<" [ "<<triangle<<" ] "<<" [ "<<tri_p1<<" ] "<<" [ "<<tri_p2<<" ] "<<" [ "<<tri_p3<<" ] "<<" [ "<<total<<" ] \n";
 
     if (triangle == 0.0f || tri_p1 == 0.0f || tri_p2 == 0.0f || tri_p3 == 0.0f)
         return (false);
