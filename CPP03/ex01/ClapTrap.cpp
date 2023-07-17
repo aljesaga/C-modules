@@ -65,7 +65,7 @@ ClapTrap::ClapTrap(std::string  ID)
     this->Hit_Points = 10;
     this->Energy_Points = 10;
     this->Attack_Damage = 0;
-    std::cout<<this->Name<<" It has been created"<<std::endl;
+    std::cout<<"ClapTrap "<<this->Name<<" It has been created"<<std::endl;
 }
 
 ClapTrap::ClapTrap()
@@ -74,10 +74,10 @@ ClapTrap::ClapTrap()
     this->Hit_Points = 10;
     this->Energy_Points = 10;
     this->Attack_Damage = 0;
-    std::cout<<"Practice Bot It has been created"<<std::endl;
+    std::cout<<"ClapTrap "<<"Practice Bot It has been created"<<std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout<<this->Name<<" Has Died"<<std::endl;
+    std::cout<<"ClapTrap "<<this->Name<<" Has Died"<<std::endl;
 }
