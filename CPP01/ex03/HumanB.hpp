@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:31:31 by alsanche          #+#    #+#             */
-/*   Updated: 2023/05/17 18:15:25 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/07/18 12:29:42 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class HumanB
 {
     public:
     
-        void    setWeapon(Weapon &arm);
+        void    setWeapon(Weapon& arm);
         void    attack(void);
         HumanB(std::string ID);
         ~HumanB();

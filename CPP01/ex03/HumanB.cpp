@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:27:22 by alsanche          #+#    #+#             */
-/*   Updated: 2023/05/17 18:15:25 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/07/18 12:32:10 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ HumanB::~HumanB()
     return ;
 }
 
-void    HumanB::setWeapon(Weapon &arm)
+void    HumanB::setWeapon(Weapon& arm)
 {
     this->_weapon = &arm;
 }

@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:38:27 by alsanche          #+#    #+#             */
-/*   Updated: 2023/05/26 17:38:28 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/07/18 13:10:23 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Mixer::Mixer(std::string Fd, std::string T1, std::string T2)
         this->Error = 1;
     }
     this->_out_file = this->_filename;
-    this->_out_file.append("_mixed");
+    this->_out_file.append(".replace");
     this->in.open(this->_filename);
     if (this->in.fail())
     {
