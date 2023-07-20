@@ -1,11 +1,9 @@
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 int main(void)
 {
     ClapTrap one("Stormtrooper");
-    ScavTrap two("Red guardian");
     FragTrap four("Deathtrooper");
     ClapTrap tree;
 
@@ -24,8 +22,6 @@ int main(void)
         std::cout<<"You don't need to repair because all the shots failed"<<std::endl;
         std::cout<<RESET;
     }
-    two.attack("Electric spear");
-    tree.takeDamage(two.get_value(2));
     four.highFivesGuys();
     return (0);
 }

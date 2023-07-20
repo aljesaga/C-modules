@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(std::string ID): ClapTrap(ID)
     std::cout<<RESET;
 }
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(): ClapTrap()
 {
     this->Name = "Default bot";
     this->Hit_Points = 100;
