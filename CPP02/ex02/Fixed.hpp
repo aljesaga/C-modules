@@ -35,7 +35,7 @@ class Fixed
         void    operator=(Fixed const& fix);
 
         Fixed();
-        Fixed(Fixed& fix);
+        Fixed(const Fixed& fix);
         Fixed(const int num);
         Fixed(const float num);
         ~Fixed();

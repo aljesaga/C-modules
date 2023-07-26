@@ -9,7 +9,7 @@
 #define CYAN   "\e[0;36m";
 #define RESET  "\e[0m";
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
     public:
         FragTrap(std::string ID);

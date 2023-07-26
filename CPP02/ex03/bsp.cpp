@@ -26,8 +26,6 @@ bool    bsp(Point const a, Point const b, Point const c, Point const p)
     tri_p3 = get_area(c, a, p);
     total = tri_p1 + tri_p2 + tri_p3;
 
-    std::cout<<" [ "<<triangle<<" ] "<<" [ "<<tri_p1<<" ] "<<" [ "<<tri_p2<<" ] "<<" [ "<<tri_p3<<" ] "<<" [ "<<total<<" ] \n";
-
     if (triangle == 0.0f || tri_p1 == 0.0f || tri_p2 == 0.0f || tri_p3 == 0.0f)
         return (false);
     else if (total == triangle)

@@ -9,7 +9,7 @@
 #define CYAN   "\e[0;36m";
 #define RESET  "\e[0m";
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
     public:
 

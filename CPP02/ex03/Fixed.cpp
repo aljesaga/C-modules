@@ -154,9 +154,9 @@ Fixed::Fixed()
     this->point_value = 0;
 }
 
-Fixed::Fixed(Fixed &fix)
+Fixed::Fixed(const Fixed &fix)
 {
-    this->point_value = fix.getRawBits();
+    *this = fix;
 }
 
 Fixed::Fixed(const int num)
@@ -166,7 +166,7 @@ Fixed::Fixed(const int num)
 
 Fixed::Fixed(const float num)
 {
-    this->point_value = num * (1 << this->constant);
+     this->point_value = (int) (roundf(num * (1 << this->constant)));
 }
 
 Fixed::~Fixed()

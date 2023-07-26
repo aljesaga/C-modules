@@ -35,19 +35,19 @@ Fixed::Fixed()
 Fixed::Fixed(Fixed &fix)
 {
     std::cout<<"Copy constructor called"<<std::endl;
-    this->point_value = fix.getRawBits();
+    *this = fix;
 }
 
 Fixed::Fixed(const int num)
 {
     std::cout<<"Int constructor called"<<std::endl;
-    this->point_value = num * (1<<this->constant);
+    this->point_value = num << this->constant;
 }
 
 Fixed::Fixed(const float num)
 {
     std::cout<<"float constructor called"<<std::endl;
-    this->point_value = num * (1 << this->constant);
+    this->point_value = (int) (roundf(num * (1 << this->constant)));
 }
 
 Fixed::~Fixed()
