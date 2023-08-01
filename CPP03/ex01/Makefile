@@ -10,7 +10,7 @@ CPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 ${NAME}: ${OBJS}
 				@${CC} ${CPFLAGS} ${OBJS} -o ${NAME}
-				@echo "\e[0;32mCOMPILATION IS FINISHED ✅"
+				@echo "\e033[32mCOMPILATION IS FINISHED ✅"
 			
 all: ${NAME}
 

@@ -17,14 +17,14 @@ void    DiamondTrap::whoAmI()
     std::cout<<"Hit_Points: "<<this->Hit_Points<<std::endl;
     std::cout<<"Energy_Points: "<<this->Energy_Points<<std::endl;
     std::cout<<"Attack_Damage: "<<this->Attack_Damage<<std::endl;
-    std::cout<<"and I am your father"<<std::endl;
+    std::cout<<"My ClapTrap Name is "<<ClapTrap::get_name()<<std::endl;
     std::cout<<RESET;
 }
 
-DiamondTrap::DiamondTrap(std::string ID): FragTrap(ID), ScavTrap(ID)
+DiamondTrap::DiamondTrap(std::string ID): ClapTrap(ID),  FragTrap(ID), ScavTrap(ID)
 {
     this->Name = ID;
-    this->ClapTrap::set_Name(this->Name.append("_clap_name"));
+    ClapTrap::set_Name(ClapTrap::Name.append("_clap_name"));
     this->Hit_Points = FragTrap::get_value(0);
     this->Energy_Points = ScavTrap::get_value(1);
     this->Attack_Damage = FragTrap::get_value(2);
@@ -34,7 +34,7 @@ DiamondTrap::DiamondTrap(std::string ID): FragTrap(ID), ScavTrap(ID)
 DiamondTrap::DiamondTrap(): FragTrap(), ScavTrap()
 {
     this->Name = "Darth Vader";
-    this->ClapTrap::set_Name(this->Name.append("_clap_name"));
+    ClapTrap::set_Name(ClapTrap::Name.append("_clap_name"));
     this->Hit_Points = FragTrap::get_value(0);
     this->Energy_Points = ScavTrap::get_value(1);
     this->Attack_Damage = FragTrap::get_value(2);
