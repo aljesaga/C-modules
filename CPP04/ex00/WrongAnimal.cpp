@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 12:25:10 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/05 18:08:10 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/05 18:41:14 by alsanche          #+#    #+#             */
+/*   Updated: 2023/08/05 18:42:30 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-void    Animal::operator=(Animal &cpy)
+void    WrongAnimal::operator=(WrongAnimal &cpy)
 {
     this->type = cpy.get_type();
 }
 
-void Animal::set_type(std::string _type)
+void WrongAnimal::set_type(std::string _type)
 {
     this->type = _type;
 }
 
-std::string Animal::get_type() const
+std::string WrongAnimal::get_type() const
 {
     return(this->type);
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
-     std::cout<<"Unknown Sound"<<std::endl;
+     std::cout<<"WrongAnimal:: Unknown Sound"<<std::endl;
 }
 
-Animal::Animal(std::string _type)
+WrongAnimal::WrongAnimal(std::string _type)
 {
     this->type = _type;
 }
 
-Animal::Animal(const Animal& cpy)
+WrongAnimal::WrongAnimal(const WrongAnimal& cpy)
 {
     this->type = cpy.get_type();
 }
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
     this->type = "Unknown species";
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 }

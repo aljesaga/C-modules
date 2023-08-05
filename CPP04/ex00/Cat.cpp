@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 14:32:23 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/05 18:20:51 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/05 18:17:48 by alsanche          #+#    #+#             */
+/*   Updated: 2023/08/05 18:19:43 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
 #include "Cat.hpp"
 
-int main(void)
+void Cat::makeSound() const
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+     std::cout<<"MIAUUUUU MIAUUUU 🐱"<<std::endl;
+}
 
-    std::cout<< j->get_type() << std::endl;
-    std::cout<< i->get_type() << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
+void Cat::operator=(Cat& cpy) const
+{
+    *this = cpy;
+}
 
-    return (0);
+Cat::Cat(std::string type): Animal(type)
+{
+}
+
+Cat::Cat(const Cat& cpy): Animal()
+{
+    this->set_type(cpy.get_type());
+}
+
+Cat::Cat(): Animal("Cat")
+{
+}
+
+Cat::~Cat()
+{
 }

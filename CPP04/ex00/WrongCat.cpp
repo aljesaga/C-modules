@@ -1,57 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat-Dog.cpp                                        :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 14:23:37 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/01 14:56:15 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/05 18:49:05 by alsanche          #+#    #+#             */
+/*   Updated: 2023/08/05 18:49:54 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat-Dog.hpp"
 
-void Dog::operator=(Dog& cpy) const
+#include "WrongCat.hpp"
+
+void WrongCat::makeSound() const
+{
+     std::cout<<"WrongCat :: MIAUUUUU MIAUUUU 🐱"<<std::endl;
+}
+
+void WrongCat::operator=(WrongCat& cpy) const
 {
     *this = cpy;
 }
 
-Dog::Dog(std::string type): Animal(type)
+WrongCat::WrongCat(std::string type): WrongAnimal(type)
 {
 }
 
-Dog::Dog(const Dog& cpy): Animal()
-{
-    this->set_type(cpy.get_type());
-}
-
-Dog::Dog(): Animal("Dog")
-{
-}
-
-Dog::~Dog()
-{
-}
-
-void Cat::operator=(Cat& cpy) const
-{
-    *this = cpy;
-}
-
-Cat::Cat(std::string type): Animal(type)
-{
-}
-
-Cat::Cat(const Cat& cpy): Animal()
+WrongCat::WrongCat(const WrongCat& cpy): WrongAnimal()
 {
     this->set_type(cpy.get_type());
 }
 
-Cat::Cat(): Animal("Cat")
+WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
 }
