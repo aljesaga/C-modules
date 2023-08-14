@@ -17,6 +17,11 @@ void Dog::makeSound() const
      std::cout<<"GOUF GOUF 🐶"<<std::endl;
 }
 
+Brain* Dog::get_idea()
+{
+    return (this->attribute);
+}
+
 void Dog::operator=(Dog& cpy) const
 {
     *this = cpy;
@@ -25,20 +30,24 @@ void Dog::operator=(Dog& cpy) const
 Dog::Dog(std::string type): Animal(type)
 {
     std::cout<<"Dog constructor called"<<std::endl;
+    this->attribute = new Brain();
 }
 
 Dog::Dog(const Dog& cpy): Animal()
 {
     std::cout<<"Dog copy constructor called"<<std::endl;
     this->set_type(cpy.get_type());
+    this->attribute = cpy.attribute;
 }
 
 Dog::Dog(): Animal("Dog")
 {
     std::cout<<"Dog default constructor called"<<std::endl;
+    this->attribute = new Brain();
 }
 
 Dog::~Dog()
 {
     std::cout<<"Dog destructor called"<<std::endl;
+    delete this->attribute;
 }

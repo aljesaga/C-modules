@@ -34,19 +34,23 @@ void WrongAnimal::makeSound() const
 
 WrongAnimal::WrongAnimal(std::string _type)
 {
+    std::cout<<"WrongAnimal constructor called"<<std::endl;
     this->type = _type;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& cpy)
 {
+    std::cout<<"WrongAnimal copy constructor called"<<std::endl;
     this->type = cpy.get_type();
 }
 
 WrongAnimal::WrongAnimal()
 {
+    std::cout<<"WrongAnimal default constructor called"<<std::endl;
     this->type = "Unknown species";
 }
 
 WrongAnimal::~WrongAnimal()
 {
+    std::cout<<"WrongAnimal destructor called"<<std::endl;
 }

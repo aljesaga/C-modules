@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main(void)
 {
@@ -20,11 +20,37 @@ int main(void)
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
+    std::cout<<std::endl;
+
+    std::cout<< meta->get_type() <<std::endl;
     std::cout<< j->get_type() << std::endl;
     std::cout<< i->get_type() << std::endl;
+    std::cout<<std::endl;
     i->makeSound();
     j->makeSound();
     meta->makeSound();
+
+    std::cout<<std::endl;
+    delete i;
+    delete j;
+    delete meta;
+
+    std::cout<<std::endl<<"---o---WorngAnimal---o---"<<std::endl;
+
+    std::cout<<std::endl;
+    const WrongAnimal* animal = new WrongAnimal();
+    const WrongAnimal* cat = new WrongCat();
+
+    std::cout<<std::endl;
+    std::cout<< animal->get_type() << std::endl;
+    std::cout<< cat->get_type() << std::endl;
+    std::cout<<std::endl;
+    cat->makeSound();
+    animal->makeSound();
+
+    std::cout<<std::endl;
+    delete cat;
+    delete animal;
 
     return (0);
 }

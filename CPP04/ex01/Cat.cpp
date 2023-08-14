@@ -17,6 +17,11 @@ void Cat::makeSound() const
      std::cout<<"MIAUUUUU MIAUUUU 🐱"<<std::endl;
 }
 
+Brain* Cat::get_idea()
+{
+    return (this->attribute);
+}
+
 void Cat::operator=(Cat& cpy) const
 {
     *this = cpy;
@@ -25,20 +30,24 @@ void Cat::operator=(Cat& cpy) const
 Cat::Cat(std::string type): Animal(type)
 {
     std::cout<<"Cat constructor called"<<std::endl;
+    this->attribute = new Brain();
 }
 
 Cat::Cat(const Cat& cpy): Animal()
 {
     std::cout<<"Cat copy constructor called"<<std::endl;
     this->set_type(cpy.get_type());
+    this->attribute = cpy.attribute;
 }
 
 Cat::Cat(): Animal("Cat")
 {
     std::cout<<"Cat default constructor called"<<std::endl;
+    this->attribute = new Brain();
 }
 
 Cat::~Cat()
 {
     std::cout<<"Cat destructor called"<<std::endl;
+    delete this->attribute;
 }
