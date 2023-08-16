@@ -59,6 +59,21 @@ unsigned int ClapTrap::get_value(int arv)
         return (42);
 }
 
+void ClapTrap::operator=(ClapTrap const &cpy)
+{
+    this->Name = cpy.Name;
+    this->Hit_Points = cpy.Hit_Points;
+    this->Energy_Points = cpy.Energy_Points;
+    this->Attack_Damage = cpy.Attack_Damage;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &cpy)
+{
+    *this = cpy;
+    this->Name.append("_Copy");
+    std::cout<<"Clone Constructor Called"<<std::endl;
+}
+
 ClapTrap::ClapTrap(std::string  ID)
 {
     this->Name = ID;

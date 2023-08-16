@@ -1,5 +1,22 @@
 #include "FragTrap.hpp"
 
+void    FragTrap::operator=(FragTrap const &cpy)
+{
+    this->Name = cpy.Name;
+    this->Attack_Damage = cpy.Attack_Damage;
+    this->Hit_Points = cpy.Hit_Points;
+    this->Energy_Points = cpy.Energy_Points;
+}
+
+FragTrap::FragTrap(FragTrap const &cpy): ClapTrap(cpy.Name)
+{
+    *this = cpy;
+    this->Name.append("_clone");
+    std::cout<<YELLOW;
+    std::cout<<"FragTrap Copy cnstructor called"<<std::endl;
+    std::cout<<RESET;
+}
+
 FragTrap::FragTrap(std::string ID): ClapTrap(ID)
 {
     this->Name = ID;

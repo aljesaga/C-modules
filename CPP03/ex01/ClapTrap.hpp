@@ -20,6 +20,8 @@ class ClapTrap
         std::string   get_name();
         unsigned int  get_value(int arv);
 
+        void operator=(ClapTrap const &cpy);        
+        ClapTrap(ClapTrap const &cpy);
         ClapTrap(std::string ID);
         ClapTrap();
         ~ClapTrap();

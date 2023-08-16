@@ -3,9 +3,17 @@
 
 int main(void)
 {
+    std::cout<<std::endl<<"--------------- Claptrap constructor -----------"<<std::endl;
     ClapTrap one("Stormtrooper");
+    std::cout<<std::endl<<"--------------- Fragtrap constructor -----------"<<std::endl;
     FragTrap four("Deathtrooper");
+    std::cout<<std::endl<<"--------------- FragTrap Copy constructor -----------"<<std::endl;
+    FragTrap two(four);
+    std::cout<<std::endl<<"--------------- Operator = -----------"<<std::endl;
+    two = FragTrap("C3PO");
+    std::cout<<std::endl<<"--------------- Claptrap Default constructor -----------"<<std::endl;
     ClapTrap tree;
+    std::cout<<std::endl;
 
     while (one.get_value(1) > 7)
     {
@@ -23,5 +31,6 @@ int main(void)
         std::cout<<RESET;
     }
     four.highFivesGuys();
+    std::cout<<std::endl;
     return (0);
 }

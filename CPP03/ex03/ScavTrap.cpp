@@ -26,6 +26,23 @@ void    ScavTrap::guardGate()
     std::cout<<RESET;
 }
 
+void ScavTrap::operator=(ScavTrap const &cpy)
+{
+    this->Name = cpy.Name;
+    this->Hit_Points = cpy.Hit_Points;
+    this->Attack_Damage = cpy.Attack_Damage;
+    this->Energy_Points = cpy.Energy_Points;
+}
+
+ScavTrap::ScavTrap(ScavTrap const &cpy): ClapTrap(cpy.Name)
+{
+    *this = cpy;
+    this->Name.append("_clone");
+    std::cout<<RED;
+    std::cout<<"Scavtrap was cloned"<<std::endl;
+    std::cout<<RESET;
+}
+
 ScavTrap::ScavTrap(std::string ID): ClapTrap(ID)
 {
     this->Name = ID;

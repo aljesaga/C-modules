@@ -21,6 +21,23 @@ void    DiamondTrap::whoAmI()
     std::cout<<RESET;
 }
 
+void DiamondTrap::operator=(DiamondTrap const &cpy)
+{
+    this->Name = cpy.Name;
+    ClapTrap::set_Name(cpy.Name);
+    ClapTrap::Name.append("_clap_name");
+    this->Hit_Points = cpy.Hit_Points;
+    this->Energy_Points = cpy.Energy_Points;
+    this->Attack_Damage = cpy.Attack_Damage;
+}
+
+DiamondTrap::DiamondTrap(DiamondTrap const &cpy): FragTrap(cpy.Name), ScavTrap(cpy.Name)
+{
+    this->Name = cpy.Name;
+    ClapTrap::set_Name(ClapTrap::Name.append("_clap_name"));
+    std::cout<<"DiamondTrap "<<this->Name<<" Copy constructor called"<<std::endl;
+}
+
 DiamondTrap::DiamondTrap(std::string ID): FragTrap(ID), ScavTrap(ID)
 {
     this->Name = ID;

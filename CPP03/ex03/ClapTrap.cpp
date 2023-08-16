@@ -64,6 +64,17 @@ unsigned int ClapTrap::get_value(int arv)
         return (42);
 }
 
+ClapTrap ClapTrap::operator=(ClapTrap const &cpy)
+{
+    ClapTrap aux(cpy.Name);
+    return (aux);
+}
+
+ClapTrap::ClapTrap(ClapTrap const &cpy)
+{
+    *this = cpy;
+}
+
 ClapTrap::ClapTrap(std::string  ID)
 {
     this->Name = ID;
