@@ -21,7 +21,7 @@ void    DiamondTrap::whoAmI()
     std::cout<<RESET;
 }
 
-DiamondTrap::DiamondTrap(std::string ID): ClapTrap(ID),  FragTrap(ID), ScavTrap(ID)
+DiamondTrap::DiamondTrap(std::string ID): FragTrap(ID), ScavTrap(ID)
 {
     this->Name = ID;
     ClapTrap::set_Name(ClapTrap::Name.append("_clap_name"));
@@ -44,6 +44,4 @@ DiamondTrap::DiamondTrap(): FragTrap(), ScavTrap()
 DiamondTrap::~DiamondTrap()
 {
      std::cout<<"DiamondTrap "<<this->Name<<" die in the lava"<<std::endl;
-
-     
 }
