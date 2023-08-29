@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 18:18:34 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/05 18:19:34 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/08/29 10:49:21 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Cat: public Animal
     public:
         void    makeSound() const;
         Brain *get_idea();
+        
         void    operator=(Cat& cpy) const;
         Cat(std::string type);
         Cat(const Cat& cpy);

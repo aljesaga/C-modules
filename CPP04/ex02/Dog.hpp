@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 11:56:49 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 10:47:53 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/01 14:20:13 by alsanche          #+#    #+#             */
+/*   Updated: 2023/08/29 12:52:20 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iomanip>
-# include <iostream>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Animal
+class Dog: public A_Animal
 {
-    protected:
-        std::string type;
-    
     public:
-        void    set_type(std::string _type);
-        std::string get_type() const;
-        virtual void makeSound() const;
+        void    makeSound() const;
+        Brain*  get_idea();
         
-        void    operator=(Animal &cpy);     
-        Animal(std::string _type);
-        Animal(const Animal& cpy);
-        Animal();
-        virtual ~Animal();
+        void    operator=(Dog& cpy) const;
+        Dog(std::string type);
+        Dog(const Dog& cpy);
+        Dog();
+        ~Dog();
+
+    private:
+        Brain* attribute;
 
 };
 

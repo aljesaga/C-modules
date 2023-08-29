@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 11:56:49 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 10:47:53 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/05 18:18:34 by alsanche          #+#    #+#             */
+/*   Updated: 2023/08/29 12:53:53 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iomanip>
-# include <iostream>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Animal
+class Cat: public A_Animal
 {
-    protected:
-        std::string type;
-    
     public:
-        void    set_type(std::string _type);
-        std::string get_type() const;
-        virtual void makeSound() const;
+        void    makeSound() const;
+        Brain *get_idea();
         
-        void    operator=(Animal &cpy);     
-        Animal(std::string _type);
-        Animal(const Animal& cpy);
-        Animal();
-        virtual ~Animal();
+        void    operator=(Cat& cpy) const;
+        Cat(std::string type);
+        Cat(const Cat& cpy);
+        Cat();
+        ~Cat();
 
+    private:
+        Brain* attribute;
 };
 
 #endif

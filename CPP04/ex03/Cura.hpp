@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cura.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 18:18:34 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 10:46:25 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/29 14:15:36 by alsanche          #+#    #+#             */
+/*   Updated: 2023/08/29 14:16:54 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef CURA_HPP
+# define CURA_HPP
 
-# include "Animal.hpp"
+# include "AMateria.hpp"
 
-class Cat: public Animal
+class Cura: public AMateria
 {
-    public:
-        void    makeSound() const;
-        
-        void    operator=(Cat& cpy) const;
-        Cat(std::string type);
-        Cat(const Cat& cpy);
-        Cat();
-        ~Cat();
+
 };
 
 #endif
