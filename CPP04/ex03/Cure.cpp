@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 14:08:40 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/07 17:18:16 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/09/07 16:38:47 by alsanche          #+#    #+#             */
+/*   Updated: 2023/09/07 17:56:14 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
-
 #include "Library.hpp"
 
-class Ice: public AMateria
+void    Cure::use(ICharacter & target)
 {
-    public:
-        void    use(ICharacter & target);
+    std::cout<<"* heals "<<target.getName()<<"`s wounds *"<<std::endl;
+}
 
-        Ice(std::string tpy);
-        Ice(Ice const& cpy);
-        Ice();
-        ~Ice();
+Cure::Cure(std::string tpy): AMateria(tpy)
+{
+}
 
-        Ice &operator=(Ice const& cpy);
-};
+Cure::Cure(Cure const& cpy): AMateria(cpy.getType())
+{
+}
 
-#endif
+Cure::Cure(): AMateria("Cure")
+{
+}
+
+Cure::~Cure()
+{
+}
+
+Cure &Cure::operator=(Cure const& cpy)
+{
+    if (this != &cpy)
+        *this = cpy;
+    return (*this);
+}

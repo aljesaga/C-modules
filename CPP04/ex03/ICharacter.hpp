@@ -6,16 +6,14 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:35:47 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/06 13:24:36 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/07 18:47:33 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include "AMateria.hpp"
-# include <iomanip>
-# include <iostream>
+# include "Library.hpp"
 
 class ICharacter
 {
@@ -23,11 +21,31 @@ class ICharacter
         std::string Name;
 
     public:
-        virtual ~ICharacter();
+        virtual ~ICharacter() {};
         virtual std::string const & getName() const = 0;
         virtual void equip(AMateria *m) = 0;
         virtual void unequip(int idx) = 0;
         virtual void use (int idx, ICharacter& target) = 0;
+};
+
+class Character: public ICharacter
+{
+    private:
+        AMateria* slots[4];
+        
+    public:
+        Character(std::string id);
+        Character(Character const& cpy);
+        Character();
+        ~Character();
+
+        std::string const & getName() const;
+        void equip(AMateria *m);
+        void unequip(int idx);
+        void use(int idx, ICharacter &target);
+
+        Character& operator=(Character const & cpy);
+
 };
 
 #endif

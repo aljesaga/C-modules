@@ -6,11 +6,11 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:28:58 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/06 13:47:13 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/07 18:56:17 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "Library.hpp"
 
 Character::Character(std::string id)
 {
@@ -20,6 +20,8 @@ Character::Character(std::string id)
 Character::Character(Character const& cpy)
 {
     *this = cpy;
+    for(int i = 0; i < 4; i++)
+        this->slots[i] = NULL;
 }
 
 Character::Character()
@@ -62,7 +64,7 @@ void    Character::unequip(int idx)
     {
         if (this->slots[idx] != NULL)
         {    
-            std::cout<<this->getName()<<":: Unequipped materia "<<this->slots[idx]->getType()<<end
+            std::cout<<this->getName()<<":: Unequipped materia "<<this->slots[idx]->getType()<<std::endl;
             this->slots[idx] = NULL;
         }
         else
@@ -70,17 +72,21 @@ void    Character::unequip(int idx)
     }
 }
 
-void    Character::use(ind idx, ICharacter &target)
+void    Character::use(int idx, ICharacter &target)
 {
     if (this->slots[idx] != NULL)
     {
-        this->slots[idx].use(target);
+        this->slots[idx]->use(target);
     }
 }
 
 Character& Character::operator=(Character const & cpy)
 {
-    if (&this != &cpy)
+    if (this != &cpy)
+    {
         *this = cpy;
-    return (*this);
+        for(int i = 0; i < 4; i++)
+            this->slots[i] = NULL;
+    }
+    return (*this); 
 }

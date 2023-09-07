@@ -6,11 +6,11 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:35:54 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/06 12:35:55 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/07 16:33:23 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Library.hpp"
 
 AMateria::AMateria(std::string const & type)
 {
