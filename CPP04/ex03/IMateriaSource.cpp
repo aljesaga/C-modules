@@ -6,36 +6,35 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:55:13 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/07 19:37:51 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 13:13:45 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Library.hpp"
+#include "IMateriaSource.hpp"
 
 MateriaSource::MateriaSource(MateriaSource const & cpy)
 {
     *this = cpy;
 }
 
-MateriaSource::MateriaSource(AMateria* m): IMAteriaSource()
-{
-    this->slots[0] = m;
-}
-
 MateriaSource::MateriaSource(): IMateriaSource()
 {
+    for(int i = 0; i < 4; ++i)
+        this->slots[i] = NULL;
 }
 
 MateriaSource::~MateriaSource()
 {
-    delete[] this->slots;
+    for(int i = 0; i < 4; ++i)
+        if (this->slots[i])
+            delete this->slots[i];
 }
 
-void    MateriaSource::learMateria(AMateria* m)
+void    MateriaSource::learnMateria(AMateria *m)
 {
     for(int i = 0; i < 4; ++i)
     {
-        if (this->slots[i] != NULL)
+        if (this->slots[i] == NULL)
         {
             this->slots[i] = m;
             break ;
@@ -43,8 +42,19 @@ void    MateriaSource::learMateria(AMateria* m)
     }
 }
 
-AMateria *createMateria(std::string const &type)
+AMateria *MateriaSource::createMateria(std::string const &type)
 {
-    AMateria* new(type);
-    return (new);
+    for(int i = 0; i < 4; ++i)
+    {
+        if (this->slots[i] && type == this->slots[i]->getType())
+            return (this->slots[i]->clone());
+    }
+    return (NULL);
+}
+
+MateriaSource &MateriaSource::operator=(MateriaSource const & cpy)
+{
+    if (this != &cpy)
+        *this = cpy;
+    return (*this);
 }

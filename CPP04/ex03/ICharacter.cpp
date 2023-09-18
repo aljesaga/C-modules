@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:28:58 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/07 18:56:17 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 14:29:03 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Library.hpp"
+#include "ICharacter.hpp"
 
 Character::Character(std::string id)
 {
     this->Name = id;
+    for(int i = 0; i < 4; ++i)
+        this->slots[i] = NULL;
 }
 
 Character::Character(Character const& cpy)
 {
     *this = cpy;
-    for(int i = 0; i < 4; i++)
-        this->slots[i] = NULL;
 }
 
 Character::Character()
 {
     this->Name = "Shinra soldier";
+    for(int i = 0; i < 4; ++i)
+        this->slots[i] = NULL;
 }
 
 Character::~Character()
 {
-    delete[] slots;
+    for(int i = 0; i < 4; ++i)
+        if (this->slots[i])
+            delete this->slots[i];
 }
 
 std::string const & Character::getName() const
@@ -41,20 +45,16 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-    int i = -1;
-    if (m)
+    if (!m)
+        return;
+    for(int i = 0; i < 4; ++i)
     {
-        while(++i < 4)
+        if (this->slots[i] == NULL)
         {
-            if (this->slots[i] == NULL)
-            {
-                slots[i] = m;
-                std::cout<<this->getName()<<":: Equipped materia "<<m->getType()<<" in slots "<<i<<std::endl;
-                break ;
-            }
+            this->slots[i] = m;
+            std::cout<<this->getName()<<":: Equipped materia "<<m->getType()<<" in slots "<<i<<std::endl;
+            break ;
         }
-        if (i == 4)
-            std::cout<<this->getName()<<":: Inventory is full"<<std::endl;
     }
 }
 
@@ -74,8 +74,9 @@ void    Character::unequip(int idx)
 
 void    Character::use(int idx, ICharacter &target)
 {
-    if (this->slots[idx] != NULL)
+    if (this->slots[idx])
     {
+        std::cout<<this->getName()<<":  ";
         this->slots[idx]->use(target);
     }
 }
@@ -86,7 +87,7 @@ Character& Character::operator=(Character const & cpy)
     {
         *this = cpy;
         for(int i = 0; i < 4; i++)
-            this->slots[i] = NULL;
+            this->slots[i] = cpy.slots[i];
     }
     return (*this); 
 }

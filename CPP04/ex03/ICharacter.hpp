@@ -6,14 +6,16 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:35:47 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/07 18:47:33 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 11:39:18 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include "Library.hpp"
+# include <iostream>
+# include "AMateria.hpp"
+class AMateria;
 
 class ICharacter
 {

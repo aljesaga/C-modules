@@ -6,14 +6,16 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:16:18 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/07 16:57:33 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 11:31:37 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-#  include "Library.hpp"
+# include <iostream>
+# include "ICharacter.hpp"
+class ICharacter;
 
 class AMateria
 {
@@ -28,7 +30,7 @@ class AMateria
         std::string const & getType() const;
 
         virtual AMateria * clone() const = 0;
-        virtual void use(ICharacter & target);
+        virtual void use(ICharacter& target);
 
         AMateria& operator=(AMateria const & cpy);
 };

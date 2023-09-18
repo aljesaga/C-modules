@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Electro.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 12:35:54 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/18 11:54:36 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/09/07 16:38:47 by alsanche          #+#    #+#             */
+/*   Updated: 2023/09/18 13:50:32 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Electro.hpp"
 
-AMateria::AMateria(std::string const & type)
+void    Electro::use(ICharacter & target)
 {
-    this->_type = type;
+     std::cout<<"* shoot an electric lightning at "<<target.getName()<<" *"<<std::endl;
 }
 
-AMateria::AMateria(AMateria const & cpy)
-{
-    *this = cpy;
-}
-
-AMateria::~AMateria()
+Electro::Electro(Electro const& cpy): AMateria(cpy.getType())
 {
 }
 
-std::string const & AMateria::getType() const
-{
-    return (this->_type);
-}
-
-void    AMateria::use(ICharacter & target)
+Electro::Electro(): AMateria("electro")
 {
 }
 
-AMateria& AMateria::operator=(AMateria const & cpy)
+Electro::~Electro()
 {
-    if (this->getType() != cpy.getType())
+}
+
+AMateria *Electro::clone() const
+{
+    return (new Electro());
+}
+
+Electro &Electro::operator=(Electro const& cpy)
+{
+    if (this != &cpy)
         *this = cpy;
     return (*this);
 }

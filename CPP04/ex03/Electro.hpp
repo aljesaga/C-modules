@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Library.hpp                                        :+:      :+:    :+:   */
+/*   Electro.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 16:22:39 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/07 18:43:59 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/08/29 14:15:36 by alsanche          #+#    #+#             */
+/*   Updated: 2023/09/18 13:46:45 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBRARY_HPP
-# define LIBRARY_HPP
+#ifndef ELECTRO_HPP
+# define ELECTRO_HPP
 
-# include <iostream>
-# include <iomanip>
 # include "AMateria.hpp"
-# include "IMateriaSource.hpp"
 # include "ICharacter.hpp"
-# include "Cure.hpp"
-# include "Ice.hpp"
+class ICharacter;
+
+class Electro: public AMateria
+{
+    public:
+        void    use(ICharacter & target);
+
+        Electro(Electro const& cpy);
+        Electro();
+        ~Electro();
+        AMateria *clone() const;
+
+        Electro &operator=(Electro const & cpy);
+
+};
 
 #endif

@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Pyro.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 12:35:54 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/18 11:54:36 by alsanche         ###   ########lyon.fr   */
+/*   Created: 2023/09/07 16:38:47 by alsanche          #+#    #+#             */
+/*   Updated: 2023/09/18 13:50:32 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Pyro.hpp"
 
-AMateria::AMateria(std::string const & type)
+void    Pyro::use(ICharacter & target)
 {
-    this->_type = type;
+     std::cout<<"* shoots an fire bolt at "<<target.getName()<<" *"<<std::endl;
 }
 
-AMateria::AMateria(AMateria const & cpy)
-{
-    *this = cpy;
-}
-
-AMateria::~AMateria()
+Pyro::Pyro(Pyro const& cpy): AMateria(cpy.getType())
 {
 }
 
-std::string const & AMateria::getType() const
-{
-    return (this->_type);
-}
-
-void    AMateria::use(ICharacter & target)
+Pyro::Pyro(): AMateria("pyro")
 {
 }
 
-AMateria& AMateria::operator=(AMateria const & cpy)
+Pyro::~Pyro()
 {
-    if (this->getType() != cpy.getType())
+}
+
+AMateria *Pyro::clone() const
+{
+    return (new Pyro());
+}
+
+Pyro &Pyro::operator=(Pyro const& cpy)
+{
+    if (this != &cpy)
         *this = cpy;
     return (*this);
 }
