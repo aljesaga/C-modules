@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/09/19 09:05:47 by alsanche          #+#    #+#              #
+#    Updated: 2023/09/19 11:01:15 by alsanche         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = Animals
 
 SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
@@ -6,7 +18,7 @@ OBJS = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-CPFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+CPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 ${NAME}: ${OBJS}
 				@${CC} ${CPFLAGS} ${OBJS} -o ${NAME}

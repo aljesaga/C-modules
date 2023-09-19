@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:20:13 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 10:51:12 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 09:59:55 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog: public Animal
         void    makeSound() const;
         Brain*  get_idea();
         
-        void    operator=(Dog& cpy) const;
+        Dog    &operator=(Dog const & cpy);
         Dog(std::string type);
         Dog(const Dog& cpy);
         Dog();

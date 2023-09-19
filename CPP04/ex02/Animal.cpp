@@ -6,51 +6,51 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:25:10 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 12:39:05 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:18:53 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-void A_Animal::set_type(std::string _type)
+void AAnimal::set_type(std::string _type)
 {
     this->type = _type;
 }
 
-std::string A_Animal::get_type() const
+std::string AAnimal::get_type() const
 {
     return(this->type);
 }
 
-void A_Animal::makeSound() const
+void AAnimal::makeSound() const
 {
      std::cout<<"Unknown Sound"<<std::endl;
 }
 
-/*void    A_Animal::operator=(A_Animal &cpy)
+/*void    AAnimal::operator=(A_Animal &cpy)
 {
     this->type = cpy.get_type();
 }
 
-A_Animal::A_Animal(std::string _type)
+AAnimal::AAnimal(std::string _type)
 {
-    std::cout<<"A_Animal constructor called"<<std::endl;
+    std::cout<<"AAnimal constructor called"<<std::endl;
     this->type = _type;
 }
 
-A_Animal::A_Animal(const A_Animal& cpy)
+AAnimal::AAnimal(const AAnimal& cpy)
 {
-    std::cout<<"A_Animal copy constructor called"<<std::endl;
+    std::cout<<"AAnimal copy constructor called"<<std::endl;
     this->type = cpy.get_type();
 }
 
-A_Animal::A_Animal()
+AAnimal::AAnimal()
 {
-    std::cout<<"A_Animal default constructor called"<<std::endl;
+    std::cout<<"AAnimal default constructor called"<<std::endl;
     this->type = "Unknown species";
 }*/
 
-A_Animal::~A_Animal()
+AAnimal::~AAnimal()
 {
-    std::cout<<"A_Animal destructor called"<<std::endl;
+    std::cout<<"AAnimal destructor called"<<std::endl;
 }

@@ -1,4 +1,4 @@
-NAME = Animals
+NAME = AAnimals
 
 SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
@@ -6,7 +6,7 @@ OBJS = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-CPFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
+CPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 ${NAME}: ${OBJS}
 				@${CC} ${CPFLAGS} ${OBJS} -o ${NAME}

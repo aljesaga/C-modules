@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 18:17:48 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/05 18:19:43 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 10:45:36 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ Brain* Cat::get_idea()
     return (this->attribute);
 }
 
-void Cat::operator=(Cat& cpy) const
+Cat &Cat::operator=(Cat const & cpy)
 {
-    *this = cpy;
+    this->attribute = new Brain(*cpy.attribute);
+    this->type = cpy.get_type();
+    return (*this);
 }
 
 Cat::Cat(std::string type): Animal(type)
@@ -37,7 +39,7 @@ Cat::Cat(const Cat& cpy): Animal()
 {
     std::cout<<"Cat copy constructor called"<<std::endl;
     this->set_type(cpy.get_type());
-    this->attribute = cpy.attribute;
+    this->attribute = new Brain(*cpy.attribute);
 }
 
 Cat::Cat(): Animal("Cat")

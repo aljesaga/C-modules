@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:20:13 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 12:52:20 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:08:45 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Dog: public A_Animal
+class Dog: public AAnimal
 {
     public:
         void    makeSound() const;
         Brain*  get_idea();
         
-        void    operator=(Dog& cpy) const;
+        Dog    &operator=(Dog const & cpy);
         Dog(std::string type);
         Dog(const Dog& cpy);
         Dog();

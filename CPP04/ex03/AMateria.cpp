@@ -6,15 +6,15 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:35:54 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/18 11:54:36 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:37:39 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(std::string const & id)
 {
-    this->_type = type;
+    this->type = id;
 }
 
 AMateria::AMateria(AMateria const & cpy)
@@ -28,7 +28,7 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
-    return (this->_type);
+    return (this->type);
 }
 
 void    AMateria::use(ICharacter & target)

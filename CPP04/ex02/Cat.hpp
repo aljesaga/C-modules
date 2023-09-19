@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 18:18:34 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 12:53:53 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:09:02 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Cat: public A_Animal
+class Cat: public AAnimal
 {
     public:
         void    makeSound() const;
-        Brain *get_idea();
+        Brain   *get_idea();
         
-        void    operator=(Cat& cpy) const;
+        Cat&    operator=(Cat const & cpy);
         Cat(std::string type);
         Cat(const Cat& cpy);
         Cat();

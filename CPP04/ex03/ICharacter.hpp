@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:35:47 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/18 11:39:18 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:24:34 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ class AMateria;
 
 class ICharacter
 {
-    protected:
-        std::string Name;
-
     public:
         virtual ~ICharacter() {};
         virtual std::string const & getName() const = 0;
@@ -34,6 +31,7 @@ class Character: public ICharacter
 {
     private:
         AMateria* slots[4];
+        std::string Name;
         
     public:
         Character(std::string id);

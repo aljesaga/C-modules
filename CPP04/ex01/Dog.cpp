@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:23:37 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/05 18:21:04 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 10:16:17 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ Brain* Dog::get_idea()
     return (this->attribute);
 }
 
-void Dog::operator=(Dog& cpy) const
+Dog &Dog::operator=(Dog const & cpy)
 {
-    *this = cpy;
+    this->attribute = new Brain(*cpy.attribute);
+    this->type = cpy.get_type();
+    return (*this);
 }
 
 Dog::Dog(std::string type): Animal(type)
@@ -37,7 +39,7 @@ Dog::Dog(const Dog& cpy): Animal()
 {
     std::cout<<"Dog copy constructor called"<<std::endl;
     this->set_type(cpy.get_type());
-    this->attribute = cpy.attribute;
+    this->attribute = new Brain(*cpy.attribute);
 }
 
 Dog::Dog(): Animal("Dog")

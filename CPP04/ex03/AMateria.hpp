@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:16:18 by alsanche          #+#    #+#             */
-/*   Updated: 2023/09/18 11:31:37 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:34:10 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class ICharacter;
 class AMateria
 {
     protected:
-        std::string _type;
+        std::string type;
 
     public:
-        AMateria(std::string const & type);
+        AMateria(std::string const & id);
         AMateria(AMateria const & cpy);
         virtual ~AMateria();
 

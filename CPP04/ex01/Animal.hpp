@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:56:49 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 10:47:53 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 10:39:13 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
         std::string get_type() const;
         virtual void makeSound() const;
         
-        void    operator=(Animal &cpy);     
+        Animal    &operator=(Animal const &cpy);     
         Animal(std::string _type);
         Animal(const Animal& cpy);
         Animal();

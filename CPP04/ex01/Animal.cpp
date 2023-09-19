@@ -6,15 +6,16 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:25:10 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/05 18:08:10 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 10:45:47 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-void    Animal::operator=(Animal &cpy)
+Animal    &Animal::operator=(Animal const &cpy)
 {
     this->type = cpy.get_type();
+    return (*this);
 }
 
 void Animal::set_type(std::string _type)

@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:56:49 by alsanche          #+#    #+#             */
-/*   Updated: 2023/08/29 12:36:37 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 11:09:02 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iomanip>
 # include <iostream>
 
-class A_Animal
+class AAnimal
 {
     protected:
         std::string type;
@@ -27,12 +27,12 @@ class A_Animal
         virtual void makeSound() const = 0;
         
         /*
-        void    operator=(A_Animal &cpy);     
-        A_Animal(std::string _type);
-        A_Animal(const A_Animal& cpy);
-        A_Animal();
+        void    operator=(AAnimal &cpy);     
+        AAnimal(std::string _type);
+        AAnimal(const AAnimal& cpy);
+        AAnimal();
         */
-        virtual ~A_Animal();
+        virtual ~AAnimal();
 
 };
 
